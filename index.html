@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PKM Belitung - Pelatihan Strategi Pemasaran Digital Berbasis AI untuk UMKM</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            belitung: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#0c4a6e',
+              emerald: '#0d9488',
+              amber: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-belitung-500 selection:text-white">
+
+  <!-- TOP NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Logo & Title -->
+        <a href="#beranda" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-robot text-lg"></i>
+          </div>
+          <div>
+            <div class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 group-hover:text-belitung-600 transition-colors">
+              PKM AI & UMKM Belitung
+            </div>
+            <p class="text-xs text-slate-500 font-medium hidden sm:block">Digital Marketing & Brand Positioning</p>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#beranda" class="hover:text-belitung-600 transition-colors">Beranda</a>
+          <a href="#tentang" class="hover:text-belitung-600 transition-colors">Tentang Program</a>
+          <a href="#materi-ai" class="hover:text-belitung-600 transition-colors">Materi AI</a>
+          <a href="#dokumen" class="hover:text-belitung-600 transition-colors">Buku Panduan & Modul</a>
+          <a href="#galeri" class="hover:text-belitung-600 transition-colors">Galeri</a>
+          <a href="#tim" class="hover:text-belitung-600 transition-colors">Tim Pelaksana</a>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button onclick="openShareModal()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <i class="fa-solid fa-share-nodes text-belitung-600"></i>
+            <span class="hidden sm:inline">Bagikan</span>
+          </button>
+          <a href="#dokumen" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-700 hover:to-teal-700 text-white shadow-sm shadow-sky-500/25 transition">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Baca Panduan</span>
+          </a>
+          <!-- Mobile Menu Button -->
+          <button onclick="toggleMobileMenu()" id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2 md:hidden text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-5 space-y-2 shadow-lg">
+      <a href="#beranda" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Beranda</a>
+      <a href="#tentang" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Tentang Program</a>
+      <a href="#materi-ai" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Materi AI</a>
+      <a href="#dokumen" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Buku Panduan & Modul</a>
+      <a href="#galeri" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Galeri Belitung</a>
+      <a href="#tim" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Tim Pelaksana</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="beranda" class="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-b from-sky-50/80 via-white to-slate-50">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-20 -right-32 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 border border-sky-200 text-belitung-700 text-xs sm:text-sm font-semibold mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Program Kreativitas Mahasiswa (PKM) • Kepulauan Belitung
+        </div>
+        
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
+          Pelatihan Strategi Pemasaran Digital <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600">Berbasis AI</span> Untuk Peningkatan Brand Awareness & Positioning Produk <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-teal-600">UMKM Belitung</span>
+        </h1>
+        
+        <p class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto">
+          Portal repositori buku panduan, modul praktik *prompting AI*, materi pelatihan konten digital, serta dokumentasi pengabdian mahasiswa dalam memajukan daya saing produk lokal khas Belitung.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="#dokumen" class="px-6 py-3.5 rounded-xl font-bold text-white bg-slate-900 hover:bg-slate-800 shadow-lg shadow-slate-900/20 hover:-translate-y-0.5 transition flex items-center gap-3">
+            <i class="fa-solid fa-book-open text-teal-400"></i>
+            Baca Buku Panduan AI
+          </a>
+          <a href="#tentang" class="px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 hover:border-slate-400 transition flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-slate-500"></i>
+            Pelajari Program & Output
+          </a>
+        </div>
+
+        <!-- Quick Stats Banner -->
+        <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="text-center p-2">
+            <div class="text-2xl sm:text-3xl font-extrabold text-sky-600" id="stat-books">3+</div>
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Buku & Modul AI</div>
+          </div>
+          <div class="text-center p-2 border-l border-slate-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-teal-600" id="stat-docs">5+</div>
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Dokumen & Luaran</div>
+          </div>
+          <div class="text-center p-2 border-t md:border-t-0 md:border-l border-slate-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-amber-600">Generative AI</div>
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Fokus Pelatihan</div>
+          </div>
+          <div class="text-center p-2 border-t md:border-t-0 md:border-l border-slate-200">
+            <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600">UMKM Belitung</div>
+            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">Mitra Sasaran</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG KEGIATAN -->
+  <section id="tentang" class="py-16 sm:py-24 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Kolom Teks -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-block px-3 py-1 rounded-md bg-teal-50 text-teal-700 font-bold text-xs uppercase tracking-wider">
+            Latar Belakang & Urgensi Program
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-snug">
+            Akselerasi Daya Saing Produk Belitung Melalui Kecerdasan Buatan (AI)
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            Produk UMKM di Kepulauan Belitung (seperti olahan lada/sahang, kerupuk kemplang, terasi/belacan, olahan kepiting, hingga kerajinan etnik) memiliki potensi pasar yang masif. Namun, pelaku usaha sering kali menghadapi kendala keterbatasan waktu, biaya produksi konten promosi, dan kemampuan merumuskan identitas merek yang kuat.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            Program PKM ini menghadirkan transfer pengetahuan teknologi <strong>Artificial Intelligence (AI Generatif)</strong> yang mudah dipraktikkan langsung oleh pelaku UMKM hanya dengan smartphone, mulai dari perumusan *copywriting*, pembuatan visual kemasan, pemetaan target audiens, hingga penentuan *positioning* produk di pasar nasional.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex gap-3.5">
+              <div class="text-sky-600 text-xl pt-0.5"><i class="fa-solid fa-chart-line"></i></div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Brand Awareness</h3>
+                <p class="text-xs text-slate-500 mt-1">Membantu UMKM memproduksi konten pemasaran konsisten & berkualitas tinggi dalam hitungan menit memanfaatkan AI.</p>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex gap-3.5">
+              <div class="text-teal-600 text-xl pt-0.5"><i class="fa-solid fa-bullseye"></i></div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Positioning Kuat</h3>
+                <p class="text-xs text-slate-500 mt-1">Menonjolkan keunikan autentik khas Belitung agar produk memiliki diferensiasi dan nilai jual lebih tinggi dibanding kompetitor.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl">
+            <p class="text-xs sm:text-sm text-amber-900 leading-relaxed font-medium">
+              <span class="font-bold"><i class="fa-solid fa-circle-exclamation mr-1"></i> Cara Menambahkan File PDF Anda di Repositori:</span> 
+              Simpan file PDF Buku Panduan Anda di repositori GitHub (misal di folder <code class="bg-amber-200/60 px-1 py-0.5 rounded text-amber-900 font-mono">docs/</code>), lalu ubah nama file pada variabel <code class="bg-amber-200/60 px-1 py-0.5 rounded text-amber-900 font-mono">documentsData</code> di script halaman ini.
+            </p>
+          </div>
+        </div>
+
+        <!-- Kolom Info Ringkas / Lokasi -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div class="absolute -right-8 -bottom-8 opacity-10 text-9xl text-white">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-circle-nodes text-teal-400"></i>
+            Spesifikasi Program PKM
+          </h3>
+          <ul class="space-y-4 text-sm relative z-10">
+            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+              <span class="text-slate-400 w-28 shrink-0">Wilayah:</span>
+              <span class="font-medium text-slate-100">Kabupaten Belitung & Belitung Timur</span>
+            </li>
+            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+              <span class="text-slate-400 w-28 shrink-0">Sasaran:</span>
+              <span class="font-medium text-teal-300">Pelaku UMKM Kuliner, Kerajinan, & Oleh-oleh</span>
+            </li>
+            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+              <span class="text-slate-400 w-28 shrink-0">Fokus Teknologi:</span>
+              <span class="font-medium text-slate-100">Generative AI (Text-to-Text & Text-to-Image Prompts)</span>
+            </li>
+            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+              <span class="text-slate-400 w-28 shrink-0">Luaran Wajib:</span>
+              <span class="font-medium text-slate-100">Buku Panduan Ber-ISBN, Modul Praktikum, Laporan Akhir & Video</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-slate-400 w-28 shrink-0">Status:</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                Dokumentasi Terpublikasi
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT MATERI PELATIHAN AI -->
+  <section id="materi-ai" class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-block px-3 py-1 rounded-md bg-sky-100 text-sky-800 font-bold text-xs uppercase tracking-wider mb-2">
+          Kurikulum Modul Pelatihan
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+          Pilar Pelatihan Pemasaran Digital Berbasis AI
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Dirancang sistematis agar mudah dipelajari oleh seluruh pelaku UMKM Belitung tanpa memerlukan latar belakang teknis yang rumit.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl mb-4 font-bold">
+            <i class="fa-solid fa-pen-fancy"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">1. AI Copywriting & Caption Promosi</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+            Teknik menyusun rumus *prompt* untuk menghasilkan deskripsi produk yang memikat di Shopee/Tokopedia, *storytelling* khas Belitung, dan caption Instagram/TikTok yang menjual.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl mb-4 font-bold">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">2. Desain Visual & Foto Produk AI</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+            Optimalisasi tool AI visual untuk menghapus background secara instan, membuat mockup katalog etalase profesional bertema eksotisme pantai Belitung, dan poster promosi.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mb-4 font-bold">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">3. Brand Positioning & Analisis Audiens</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+            Pemanfaatan AI sebagai konsultan bisnis virtual untuk memetakan segmen pelanggan wisatawan vs pasar daring, menganalisis kompetitor, dan menentukan keunggulan unik (USP) produk.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUKU PANDUAN & REPOSITORI DOKUMEN -->
+  <section id="dokumen" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-block px-3 py-1 rounded-md bg-sky-100 text-sky-800 font-bold text-xs uppercase tracking-wider mb-2">
+            Repositori Dokumen PKM
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Buku Panduan & Arsip Terbuka
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
+            Klik tombol <span class="font-semibold text-slate-800">"Baca Langsung"</span> untuk membuka penampil dokumen di layar tanpa perlu mendownload terlebih dahulu, atau gunakan tombol unduh untuk menyimpan.
+          </p>
+        </div>
+
+        <!-- Filter Tab -->
+        <div class="flex flex-wrap items-center gap-2" id="filterTabs">
+          <button onclick="filterDocs('semua')" class="doc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-white transition" data-category="semua">
+            Semua Dokumen
+          </button>
+          <button onclick="filterDocs('panduan')" class="doc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-200 transition" data-category="panduan">
+            Buku Panduan
+          </button>
+          <button onclick="filterDocs('laporan')" class="doc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-200 transition" data-category="laporan">
+            Laporan
+          </button>
+          <button onclick="filterDocs('materi')" class="doc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-200 transition" data-category="materi">
+            Modul / SOP
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="mb-8">
+        <div class="relative max-w-md">
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="searchDocs(this.value)"
+            placeholder="Cari judul modul, buku AI, atau laporan..." 
+            class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent shadow-sm">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
+        </div>
+      </div>
+
+      <!-- Grid Cards Dokumen -->
+      <div id="documentsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by JS -->
+      </div>
+
+      <!-- Blank State (if no document match) -->
+      <div id="emptyDocs" class="hidden text-center py-16">
+        <i class="fa-regular fa-folder-open text-5xl text-slate-300"></i>
+        <h4 class="mt-4 font-bold text-slate-700">Dokumen tidak ditemukan</h4>
+        <p class="text-sm text-slate-500">Coba kata kunci pencarian lain atau pilih filter 'Semua Dokumen'.</p>
+      </div>
+
+      <!-- Panduan Update Mandiri untuk Pengguna GitHub -->
+      <div class="mt-12 p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 text-2xl font-bold">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">Ingin mengganti file PDF dengan buku panduan asli Anda?</h4>
+            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+              Simpan file PDF Anda di folder <code class="font-mono text-teal-700 bg-teal-100 px-1 py-0.5 rounded">docs/</code> di GitHub repo, lalu ubah jalur file di bagian variabel <code class="font-mono text-slate-800">documentsData</code>.
+            </p>
+          </div>
+        </div>
+        <button onclick="openHowToModal()" class="px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-semibold transition shrink-0">
+          <i class="fa-solid fa-code mr-1.5"></i> Panduan Upload GitHub
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALERI DOKUMENTASI KEGIATAN -->
+  <section id="galeri" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-block px-3 py-1 rounded-md bg-teal-100 text-teal-800 font-bold text-xs uppercase tracking-wider mb-2">
+          Galeri Visual Kegiatan
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Dokumentasi Pelatihan & Praktik UMKM
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Rangkaian interaksi bersama para pelaku UMKM Belitung selama sesi pengenalan prompt AI, pemotretan produk, hingga penyusunan strategi branding.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryContainer">
+        <!-- Gallery items rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TIM & DUKUNGAN -->
+  <section id="tim" class="py-16 sm:py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-block px-3 py-1 rounded-md bg-sky-100 text-sky-800 font-bold text-xs uppercase tracking-wider mb-2">
+          Kolaborasi Pelaksana
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+          Tim PKM & Mitra Pendukung
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Sinergi mahasiswa, dosen pembimbing, dinas/asosiasi terkait, serta komunitas UMKM di Kepulauan Belitung.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Anggota 1 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition">
+          <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-sky-500 overflow-hidden mb-4 flex items-center justify-center text-slate-500 text-3xl">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base">Ketua Tim Pengusul</h4>
+          <p class="text-xs font-semibold text-sky-600 mb-2">Koordinator Pelaksanaan PKM</p>
+          <p class="text-xs text-slate-500">Perguruan Tinggi Pelaksana</p>
+        </div>
+
+        <!-- Anggota 2 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition">
+          <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-teal-500 overflow-hidden mb-4 flex items-center justify-center text-slate-500 text-3xl">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base">Dosen Pembimbing</h4>
+          <p class="text-xs font-semibold text-teal-600 mb-2">Supervisi & Pengarah Metodologi</p>
+          <p class="text-xs text-slate-500">Fakultas / Program Studi Pembina</p>
+        </div>
+
+        <!-- Anggota 3 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition">
+          <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-amber-500 overflow-hidden mb-4 flex items-center justify-center text-slate-500 text-3xl">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base">Tim Modul & Litbang AI</h4>
+          <p class="text-xs font-semibold text-amber-600 mb-2">Penyusun Panduan & Prompt Engineering</p>
+          <p class="text-xs text-slate-500">Anggota Mahasiswa</p>
+        </div>
+
+        <!-- Anggota 4 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition">
+          <div class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-indigo-500 overflow-hidden mb-4 flex items-center justify-center text-slate-500 text-3xl">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base">Mitra UMKM Belitung</h4>
+          <p class="text-xs font-semibold text-indigo-600 mb-2">Pelaku Usaha & Komunitas Kreatif</p>
+          <p class="text-xs text-slate-500">Kab. Belitung</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-sm py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-teal-500 flex items-center justify-center text-slate-900 font-bold">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <span class="font-bold text-white text-base">PKM Digital Marketing Berbasis AI - UMKM Belitung</span>
+            <p class="text-xs text-slate-400">Peningkatan Brand Awareness & Positioning Produk Lokal</p>
+          </div>
+        </div>
+
+        <div class="text-center md:text-right text-xs space-y-1">
+          <p>Dihosting melalui <a href="https://pages.github.com" target="_blank" class="text-teal-400 hover:underline">GitHub Pages</a></p>
+          <p class="text-slate-500">Terbuka untuk civitas akademika, mitra usaha, dan masyarakat umum.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL BACA DOKUMEN LANGSUNG DI LAYAR (PDF/DOC VIEWER) -->
+  <div id="viewerModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-2 sm:p-4 transition-opacity">
+    <div class="bg-white w-full max-w-5xl h-[92vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-300">
+      
+      <!-- Modal Header -->
+      <div class="px-4 sm:px-6 py-3.5 bg-slate-900 text-white flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3 min-w-0 pr-4">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-file-pdf"></i>
+          </div>
+          <div class="truncate">
+            <h3 id="modalDocTitle" class="font-bold text-sm sm:text-base text-white truncate">Buku Panduan AI</h3>
+            <span id="modalDocBadge" class="text-[11px] text-teal-400 font-mono">Luaran PKM UMKM Belitung</span>
+          </div>
+        </div>
+
+        <!-- Controls: Open in New Tab, Download, Close -->
+        <div class="flex items-center gap-2 shrink-0">
+          <a id="modalExternalLink" href="#" target="_blank" title="Buka di tab baru" class="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a id="modalDownloadBtn" href="#" download class="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-medium text-xs flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-download"></i>
+            <span class="hidden sm:inline">Unduh</span>
+          </a>
+          <button onclick="closeViewerModal()" class="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-rose-600/80 transition ml-1">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Iframe Viewer + Fallback notification) -->
+      <div class="flex-1 bg-slate-100 relative">
+        <iframe id="pdfIframe" src="" class="w-full h-full border-0"></iframe>
+        
+        <!-- Viewer notice jika file lokal belum di-upload -->
+        <div id="viewerFallbackTip" class="absolute bottom-3 left-4 right-4 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-slate-200 text-xs text-slate-600 shadow-md flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-lightbulb text-amber-500 text-sm"></i>
+            <span>Jika preview PDF tidak muncul di browser HP, klik tombol <strong>"Unduh"</strong> atau <strong>"Buka di tab baru"</strong>.</span>
+          </div>
+          <button onclick="document.getElementById('viewerFallbackTip').style.display='none'" class="text-slate-400 hover:text-slate-700 ml-2">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL SHARE -->
+  <div id="shareModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl border border-slate-200 relative animate-in fade-in duration-200">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <h3 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+          <i class="fa-solid fa-share-nodes text-belitung-600"></i>
+          Bagikan Web Dokumentasi
+        </h3>
+        <button onclick="closeShareModal()" class="text-slate-400 hover:text-slate-600 p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-600 my-4">
+        Bagikan link web luaran PKM "Pelatihan Strategi Pemasaran Digital Berbasis AI untuk UMKM Belitung" kepada pembaca, mitra, dosen penilai, atau media sosial.
+      </p>
+
+      <!-- Tombol Share Cepat -->
+      <div class="grid grid-cols-2 gap-3 mb-5">
+        <button onclick="shareToWhatsApp()" class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+        </button>
+        <button onclick="shareToTelegram()" class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs transition">
+          <i class="fa-brands fa-telegram text-base"></i> Telegram
+        </button>
+      </div>
+
+      <!-- Salin Tautan URL -->
+      <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Salin Tautan Web</label>
+      <div class="flex items-center gap-2">
+        <input id="currentUrlInput" type="text" readonly class="w-full text-xs bg-slate-100 text-slate-700 px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none">
+        <button onclick="copyCurrentUrl()" id="btnCopyUrl" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shrink-0 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-copy"></i>
+          <span>Salin</span>
+        </button>
+      </div>
+      <div id="copyToast" class="hidden text-xs text-emerald-600 font-semibold mt-2 text-center">
+        <i class="fa-solid fa-circle-check"></i> Berhasil disalin ke clipboard!
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PANDUAN UPLOAD GITHUB -->
+  <div id="howToModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl p-6 shadow-xl border border-slate-200 relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+          <i class="fa-brands fa-github text-slate-800"></i>
+          Cara Menampilkan Buku Panduan PDF di GitHub
+        </h3>
+        <button onclick="closeHowToModal()" class="text-slate-400 hover:text-slate-600 p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 my-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <div class="p-3 bg-sky-50 rounded-xl border border-sky-100">
+          <p class="font-semibold text-sky-900">Langkah 1: Letakkan File PDF di Folder Repo</p>
+          <p class="text-sky-800 mt-1">Buat folder <code class="font-mono bg-sky-100 px-1 py-0.5 rounded">docs</code> di repositori GitHub Anda, lalu upload file PDF buku panduan (contoh: <code class="font-mono bg-sky-100 px-1 py-0.5 rounded">docs/buku-panduan-ai-belitung.pdf</code>).</p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="font-semibold text-slate-900">Langkah 2: Hubungkan Path File di JavaScript</p>
+          <p class="mt-1">Buka file <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">index.html</code> ini, pada variabel <code class="font-mono text-teal-700">const documentsData</code> ganti properti <code class="font-mono text-slate-800">pdfUrl</code> dengan nama file PDF Anda:</p>
+          <pre class="bg-slate-900 text-teal-300 p-3 rounded-lg font-mono text-[11px] overflow-x-auto mt-2">
+{
+  id: "buku-panduan-ai",
+  title: "Buku Panduan Pemasaran Digital Berbasis AI untuk UMKM Belitung",
+  category: "panduan",
+  desc: "Pedoman praktis penggunaan prompt AI untuk UMKM Belitung.",
+  pdfUrl: "docs/buku-panduan-ai-belitung.pdf", // Path file Anda di repo
+  pages: "58 Halaman",
+  date: "Oktober 2024",
+  badge: "Buku Utama"
+}</pre>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="font-semibold text-slate-900">Langkah 3: Commit & Push ke GitHub</p>
+          <p class="mt-1">Begitu Anda simpan dan commit ke branch <code class="font-mono text-slate-800">main</code>, GitHub Pages akan meng-update web secara otomatis dan file PDF Anda dapat dibaca langsung oleh siapapun!</p>
+        </div>
+      </div>
+
+      <div class="pt-2 text-right">
+        <button onclick="closeHowToModal()" class="px-4 py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs">
+          Tutup Panduan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* =====================================================================
+       DATA DOKUMEN & BUKU PANDUAN PKM UMKM BELITUNG
+       Ganti properti "pdfUrl" dengan nama file PDF yang Anda letakkan di repo:
+       Contoh: "docs/buku-panduan-ai-belitung.pdf"
+       ===================================================================== */
+    const documentsData = [
+      {
+        id: "buku-panduan-ai",
+        title: "Buku Panduan Strategi Pemasaran Digital Berbasis AI untuk UMKM Belitung",
+        category: "panduan",
+        desc: "Buku pedoman komprehensif berisi panduan praktis implementasi generative AI, teknik prompt copy iklan, pembuatan foto katalog, dan penentuan diferensiasi pasar produk khas Belitung.",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        pages: "58 Halaman",
+        date: "September 2024",
+        badge: "Buku Utama (Luaran Wajib)",
+        badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200"
+      },
+      {
+        id: "modul-prompt-ai",
+        title: "Kumpulan Modul Prompt AI & Template Konten Promosi Media Sosial",
+        category: "materi",
+        desc: "Cheat-sheet dan formula siap pakai untuk ChatGPT, Gemini, dan Canva AI dalam menyusun kalender konten bulanan bagi usaha kuliner dan kerajinan Belitung.",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        pages: "26 Halaman",
+        date: "Agustus 2024",
+        badge: "Modul Praktikum",
+        badgeColor: "bg-sky-100 text-sky-800 border-sky-200"
+      },
+      {
+        id: "sop-brand-positioning",
+        title: "Standar Operasional Prosedur (SOP) Analisis Brand Awareness & Positioning",
+        category: "materi",
+        desc: "Langkah terstruktur bagi pelaku UMKM untuk mengevaluasi persepsi konsumen, menentukan nilai keunikan produk lokal (USP), dan menetapkan harga bersaing.",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        pages: "22 Halaman",
+        date: "Agustus 2024",
+        badge: "SOP UMKM",
+        badgeColor: "bg-teal-100 text-teal-800 border-teal-200"
+      },
+      {
+        id: "laporan-kemajuan",
+        title: "Laporan Kemajuan Pelaksanaan PKM Belitung",
+        category: "laporan",
+        desc: "Laporan pertanggungjawaban tahap pertengahan: pencapaian indikator kinerja, respon pelatihan peserta UMKM, serta realisasi pemanfaatan anggaran program.",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        pages: "34 Halaman",
+        date: "Juli 2024",
+        badge: "Laporan Kemajuan",
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+      },
+      {
+        id: "laporan-akhir",
+        title: "Laporan Akhir Program PKM UMKM Belitung",
+        category: "laporan",
+        desc: "Dokumen komprehensif evaluasi dampak kenaikan pemahaman digital marketing mitra, dokumentasi luaran wajib, dan rekomendasi keberlanjutan pasca-program.",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        pages: "68 Halaman",
+        date: "Oktober 2024",
+        badge: "Laporan Akhir",
+        badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+      }
+    ];
+
+    /* DATA FOTO DOKUMENTASI PELATIHAN AI & UMKM BELITUNG */
+    const galleryData = [
+      {
+        title: "Pelatihan Praktik Prompt AI dengan UMKM",
+        tag: "Workshop AI",
+        caption: "Pendampingan langsung kepada pelaku usaha Belitung dalam menghasilkan caption penjualan menggunakan AI.",
+        img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Sesi Bedah Positioning Produk Khas Belitung",
+        tag: "Brand Strategy",
+        caption: "Diskusi pemetaan keunggulan kompetitif produk olahan laut dan kearifan lokal Belitung di pasar e-commerce.",
+        img: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Studio Mini Foto Produk & Generator Visual AI",
+        tag: "Produksi Konten",
+        caption: "Pemanfaatan AI untuk mengubah latar belakang foto produk rumahan menjadi visual katalog standar ritel.",
+        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Kunjungan & Observasi Tempat Produksi Mitra",
+        tag: "Survei Lapangan",
+        caption: "Identifikasi potensi narasi brand yang autentik langsung dari dapur produksi UMKM Belitung.",
+        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Penyerahan Buku Panduan & Sertifikat Pelatihan",
+        tag: "Serah Terima",
+        caption: "Serah terima cetakan Buku Panduan Pemasaran AI kepada perwakilan asosiasi UMKM Kabupaten Belitung.",
+        img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        title: "Foto Bersama Seluruh Peserta & Tim PKM",
+        tag: "Sinergi Belitung",
+        caption: "Apresiasi semangat antusiasme pelaku UMKM Belitung menyongsong era transformasi digital berbasis AI.",
+        img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    let currentFilter = 'semua';
+    let searchQuery = '';
+
+    // Render Dokumen Cards
+    function renderDocuments() {
+      const container = document.getElementById('documentsGrid');
+      const emptyState = document.getElementById('emptyDocs');
+      container.innerHTML = '';
+
+      const filtered = documentsData.filter(doc => {
+        const matchesCategory = (currentFilter === 'semua') || (doc.category === currentFilter);
+        const matchesSearch = doc.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              doc.desc.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        filtered.forEach(doc => {
+          const card = document.createElement('div');
+          card.className = "bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:border-sky-300 hover:shadow-lg hover:shadow-sky-500/5 transition-all duration-300 group";
+          
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold border ${doc.badgeColor}">
+                  ${doc.badge}
+                </span>
+                <span class="text-xs text-slate-400 font-medium">
+                  <i class="fa-regular fa-clock mr-1"></i>${doc.date}
+                </span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-belitung-600 transition-colors line-clamp-2 leading-snug">
+                ${doc.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-500 mt-2.5 line-clamp-3 leading-relaxed">
+                ${doc.desc}
+              </p>
+            </div>
+
+            <div class="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+              <span class="text-xs font-semibold text-slate-400">
+                <i class="fa-regular fa-file-lines mr-1"></i>${doc.pages}
+              </span>
+              <div class="flex items-center gap-2">
+                <button 
+                  onclick="viewDocument('${doc.id}')" 
+                  class="px-3.5 py-2 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold text-xs flex items-center gap-1.5 transition">
+                  <i class="fa-regular fa-eye"></i> Baca Langsung
+                </button>
+                <a 
+                  href="${doc.pdfUrl}" 
+                  download 
+                  title="Unduh file PDF"
+                  class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs flex items-center justify-center transition">
+                  <i class="fa-solid fa-download"></i>
+                </a>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+
+    // Render Galeri
+    function renderGallery() {
+      const container = document.getElementById('galleryContainer');
+      container.innerHTML = '';
+      galleryData.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = "group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm";
+        itemEl.innerHTML = `
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-200">
+            <img 
+              src="${item.img}" 
+              alt="${item.title}" 
+              loading="lazy" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              onerror="this.src='https://placehold.co/600x450/0284c7/ffffff?text=Dokumentasi+PKM+Belitung'">
+          </div>
+          <div class="p-4 bg-white">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">${item.tag}</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-sm">${item.title}</h4>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">${item.caption}</p>
+          </div>
+        `;
+        container.appendChild(itemEl);
+      });
+    }
+
+    // Filter Documents By Category
+    function filterDocs(category) {
+      currentFilter = category;
+      const buttons = document.querySelectorAll('.doc-filter-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.className = "doc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 text-white transition";
+        } else {
+          btn.className = "doc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-200 transition";
+        }
+      });
+      renderDocuments();
+    }
+
+    // Search Documents Filter
+    function searchDocs(query) {
+      searchQuery = query;
+      renderDocuments();
+    }
+
+    // Open Document in Viewer Modal
+    function viewDocument(docId) {
+      const doc = documentsData.find(d => d.id === docId);
+      if (!doc) return;
+
+      document.getElementById('modalDocTitle').textContent = doc.title;
+      document.getElementById('modalDocBadge').textContent = doc.badge + " • " + doc.pages;
+      
+      const iframe = document.getElementById('pdfIframe');
+      if (doc.pdfUrl.startsWith('http')) {
+        iframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(doc.pdfUrl)}&embedded=true`;
+      } else {
+        iframe.src = doc.pdfUrl;
+      }
+
+      document.getElementById('modalExternalLink').href = doc.pdfUrl;
+      document.getElementById('modalDownloadBtn').href = doc.pdfUrl;
+
+      document.getElementById('viewerModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeViewerModal() {
+      const modal = document.getElementById('viewerModal');
+      const iframe = document.getElementById('pdfIframe');
+      iframe.src = '';
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Toggle Mobile Navbar
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Share Modal Handlers
+    function openShareModal() {
+      document.getElementById('currentUrlInput').value = window.location.href;
+      document.getElementById('shareModal').classList.remove('hidden');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.add('hidden');
+      document.getElementById('copyToast').classList.add('hidden');
+    }
+
+    function copyCurrentUrl() {
+      const input = document.getElementById('currentUrlInput');
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+
+      const toast = document.getElementById('copyToast');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+
+    function shareToWhatsApp() {
+      const text = encodeURIComponent(`Buka Buku Panduan & Dokumentasi PKM "Pelatihan Strategi Pemasaran Digital Berbasis AI untuk UMKM Belitung": ${window.location.href}`);
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+    }
+
+    function shareToTelegram() {
+      const text = encodeURIComponent(`Dokumentasi PKM Pelatihan Pemasaran Digital Berbasis AI untuk UMKM Belitung`);
+      window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${text}`, '_blank');
+    }
+
+    // How-To GitHub Modal
+    function openHowToModal() {
+      document.getElementById('howToModal').classList.remove('hidden');
+    }
+
+    function closeHowToModal() {
+      document.getElementById('howToModal').classList.add('hidden');
+    }
+
+    // Initialize Page
+    window.addEventListener('DOMContentLoaded', () => {
+      renderDocuments();
+      renderGallery();
+      const bookCount = documentsData.filter(d => d.category === 'panduan').length;
+      document.getElementById('stat-books').textContent = bookCount + "+";
+      document.getElementById('stat-docs').textContent = documentsData.length + "+";
+    });
+
+    // Close on Escape Key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeViewerModal();
+        closeShareModal();
+        closeHowToModal();
+      }
+    });
+  </script>
+</body>
+</html>
